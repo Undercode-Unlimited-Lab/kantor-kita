@@ -8,7 +8,7 @@ interface OfficeStore {
   selectedAgentId: string | null;
   setSelectedAgentId: (id: string | null) => void;
   isPlayingMusic: boolean;
-  toggleMusic: () => void;
+  setMusicPlaying: (playing: boolean) => void;
   musicVolume: number;
   setMusicVolume: (volume: number) => void;
   isTaskModalOpen: boolean;
@@ -25,7 +25,7 @@ export const useOfficeStore = create<OfficeStore>((set) => ({
   selectedAgentId: null,
   setSelectedAgentId: (id) => set({ selectedAgentId: id }),
   isPlayingMusic: false,
-  toggleMusic: () => set((state) => ({ isPlayingMusic: !state.isPlayingMusic })),
+  setMusicPlaying: (playing) => set({ isPlayingMusic: playing }),
   musicVolume: 0.5,
   setMusicVolume: (volume) => set({ musicVolume: volume }),
   isTaskModalOpen: false,
