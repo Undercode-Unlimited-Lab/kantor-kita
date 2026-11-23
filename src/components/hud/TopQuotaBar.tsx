@@ -1,8 +1,9 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { useOfficeStore } from '@/lib/store/useOfficeStore';
-import { Plus, Minus, Maximize, LayoutGrid } from 'lucide-react';
+import { Plus, Minus, Maximize, LayoutGrid, BookOpen } from 'lucide-react';
 
 interface TopQuotaBarProps {
   weeklyPercent?: number;
@@ -84,8 +85,15 @@ export const TopQuotaBar: React.FC<TopQuotaBarProps> = ({
         </div>
       </div>
 
-      {/* Placeholder to balance space */}
-      <div className="w-20" />
+      {/* Right: How-to documentation link */}
+      <Link
+        href="/how-to"
+        className="flex items-center gap-1.5 pointer-events-auto bg-[#1b1b2f]/90 border border-[#2e3458] px-2.5 py-1.5 rounded text-slate-300 hover:text-white hover:border-indigo-500 transition shadow-lg backdrop-blur"
+        title="How to use Kantor-Kita"
+      >
+        <BookOpen size={14} />
+        <span className="text-[10px] font-bold tracking-wide">HOW TO</span>
+      </Link>
     </div>
   );
 };
